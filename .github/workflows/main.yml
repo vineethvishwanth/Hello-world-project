@@ -11,6 +11,17 @@ on:
   pull_request:
     branches: [ "main" ]        # run build check on pull requests (no deploy)
   workflow_dispatch:             # lets you trigger manually from GitHub UI
+    inputs:
+ 
+      environment:
+        description: "🌍 Deployment environment"
+        required: true
+        default: "production"
+        type: choice
+        options:
+          - production
+          - staging
+          - development
 
 # ── Permissions required for GitHub Pages deployment ─────────
 permissions:
